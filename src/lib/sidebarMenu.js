@@ -1,0 +1,70 @@
+export const SIDEBAR_MENUS = {
+  student: [
+    {
+      id: "dashboard",
+      label: "Dashboard",
+      href: "/student/dashboard",
+      icon: "dashboard",
+    },
+    {
+      id: "profile",
+      label: "Profile",
+      href: "/student/profile",
+      icon: "user",
+    },
+    {
+      id: "courses",
+      label: "courses",
+      href: "/student/courses",
+      icon: "graduationcap",
+    },
+    {
+      id: "settings",
+      label: "Settings",
+      href: "/student/settings",
+      icon: "settings",
+    },
+  ],
+
+  teacher: [
+    {
+      id: "dashboard",
+      label: "Dashboard",
+      href: "/teacher/dashboard",
+      icon: "dashboard",
+    },
+  ],
+
+  admin: [
+    {
+      id: "dashboard",
+      label: "Dashboard",
+      href: "/admin/dashboard",
+      icon: "dashboard",
+    },
+    {
+      id: "profile",
+      label: "Profile",
+      href: "/admin/profile",
+      icon: "user",
+    },
+  ],
+
+  dean: [
+    {
+      id: "dashboard",
+      label: "Dashboard",
+      href: "/dean/dashboard",
+      icon: "dashboard",
+    },
+  ],
+
+  chairman: [
+    {
+      id: "dashboard",
+      label: "Dashboard",
+      href: "/chairman/dashboard",
+      icon: "dashboard",
+    },
+  ],
+};
