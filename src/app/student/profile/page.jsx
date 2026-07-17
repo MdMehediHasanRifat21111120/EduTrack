@@ -1,7 +1,9 @@
-export default function StudentProfile(){
-    return(
-        <div>
-            <p>This is Student profile Page</p>
-        </div>
-    )
+import ProfileCard from "@/components/profile/ProfileCard";
+
+export default function StudentProfilePage() {
+  return (
+    <div className="flex min-h-screen justify-center bg-slate-50 px-4 py-12">
+      <ProfileCard/>
+    </div>
+  );
 }
