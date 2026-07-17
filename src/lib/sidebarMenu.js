@@ -48,6 +48,18 @@ export const SIDEBAR_MENUS = {
       href: "/admin/profile",
       icon: "user",
     },
+    {
+      id: "departments",
+      label: "Departments",
+      href: "/admin/departments",
+      icon: "user",
+    },
+    {
+      id: "settings",
+      label: "Settings",
+      href: "/admin/settings",
+      icon: "settings",
+    },
   ],
 
   dean: [
