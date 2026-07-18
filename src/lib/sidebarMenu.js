@@ -55,6 +55,12 @@ export const SIDEBAR_MENUS = {
       icon: "boxes",
     },
     {
+      id:"students",
+      label:"Students",
+      href:"/admin/students",
+      icon:"user",
+    },
+    {
       id: "settings",
       label: "Settings",
       href: "/admin/settings",
