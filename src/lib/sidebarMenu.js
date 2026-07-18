@@ -52,7 +52,7 @@ export const SIDEBAR_MENUS = {
       id: "departments",
       label: "Departments",
       href: "/admin/departments",
-      icon: "user",
+      icon: "boxes",
     },
     {
       id: "settings",
