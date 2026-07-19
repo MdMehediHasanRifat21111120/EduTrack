@@ -9,6 +9,8 @@ import {
   Settings,
   GraduationCap,
   Boxes,
+  BookOpen,
+  Presentation,
 } from "lucide-react";
 
 const ICONS = {
@@ -17,6 +19,8 @@ const ICONS = {
   settings: Settings,
   graduationcap:GraduationCap,
   boxes:Boxes,
+  bookopen:BookOpen,
+  presentation:Presentation,
 };
 
 export default function SidebarItem({

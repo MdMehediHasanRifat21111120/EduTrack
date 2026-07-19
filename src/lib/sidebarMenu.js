@@ -33,6 +33,12 @@ export const SIDEBAR_MENUS = {
       href: "/teacher/dashboard",
       icon: "dashboard",
     },
+    {
+      id:"profile",
+      label:"Profile",
+      href:"/teacher/profile",
+      icon:"user",
+    },
   ],
 
   admin: [
@@ -58,13 +64,19 @@ export const SIDEBAR_MENUS = {
       id:"students",
       label:"Students",
       href:"/admin/students",
-      icon:"user",
+      icon:"graduationcap",
     },
     {
       id:"teachers",
       label:"Teachers",
       href:"/admin/teachers",
-      icon:"user",
+      icon:"presentation",
+    },
+    {
+      id:"courses",
+      label:"courses",
+      href:"/admin/courses",
+      icon:"bookopen",
     },
     {
       id: "settings",
