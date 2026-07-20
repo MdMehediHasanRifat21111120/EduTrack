@@ -159,3 +159,167 @@ export async function updateTeacher(
     throw error;
   }
 }
+export async function getCurrentTeacher() {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+    error: userError,
+  } = await supabase.auth.getUser();
+
+  if (userError) {
+    throw userError;
+  }
+
+  if (!user) {
+    throw new Error("User is not authenticated.");
+  }
+
+  const { data, error } = await supabase
+    .from("teachers")
+    .select(
+      `
+        id,
+        teacher_id,
+        designation,
+        profile_id,
+        profile:profiles (
+          id,
+          full_name,
+          email
+        )
+      `,
+    )
+    .eq("profile_id", user.id)
+    .single();
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}
+export async function getMyCourseOfferings() {
+  const supabase = await createClient();
+
+  const teacher = await getCurrentTeacher();
+
+  const { data, error } = await supabase
+    .from("course_offerings")
+    .select(
+      `
+        id,
+        academic_year,
+        semester,
+        section,
+
+        course:courses (
+          id,
+          course_code,
+          course_title,
+          credit
+        )
+      `,
+    )
+    .eq("teacher_id", teacher.id)
+    .order("academic_year", {
+      ascending: false,
+    })
+    .order("semester");
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}
+export async function getMyCourseOfferingById(offeringId) {
+  const supabase = await createClient();
+
+  const teacher = await getCurrentTeacher();
+
+  const { data, error } = await supabase
+    .from("course_offerings")
+    .select(
+      `
+        id,
+        academic_year,
+        semester,
+        section,
+
+        course:courses (
+          id,
+          course_code,
+          course_title,
+          credit
+        )
+      `,
+    )
+    .eq("id", offeringId)
+    .eq("teacher_id", teacher.id)
+    .single();
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}
+export async function getMyCourseOfferingStudents(
+  offeringId,
+) {
+  const supabase = await createClient();
+
+  const teacher =
+    await getCurrentTeacher();
+
+  // First verify that this course
+  // offering belongs to the teacher
+  const {
+    data: courseOffering,
+    error: offeringError,
+  } = await supabase
+    .from("course_offerings")
+    .select("id")
+    .eq("id", offeringId)
+    .eq("teacher_id", teacher.id)
+    .single();
+
+  if (offeringError) {
+    throw offeringError;
+  }
+
+  // Get students enrolled in
+  // this course offering
+  const { data, error } =
+    await supabase
+      .from("enrollments")
+      .select(`
+        id,
+        enrolled_at,
+
+        student:students (
+          id,
+          student_id,
+
+          profile:profiles (
+            id,
+            full_name,
+            email
+          )
+        )
+      `)
+      .eq(
+        "course_offering_id",
+        courseOffering.id,
+      )
+      .order("enrolled_at", {
+        ascending: true,
+      });
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}

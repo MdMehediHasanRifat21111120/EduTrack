@@ -11,6 +11,8 @@ import {
   Boxes,
   BookOpen,
   Presentation,
+  BookCopy,
+  FileBadge,
 } from "lucide-react";
 
 const ICONS = {
@@ -21,6 +23,8 @@ const ICONS = {
   boxes:Boxes,
   bookopen:BookOpen,
   presentation:Presentation,
+  bookcopy:BookCopy,
+  filebadge:FileBadge,
 };
 
 export default function SidebarItem({

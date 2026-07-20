@@ -39,6 +39,12 @@ export const SIDEBAR_MENUS = {
       href:"/teacher/profile",
       icon:"user",
     },
+    {
+      id:"courses",
+      label:"Courses",
+      href:"/teacher/courses",
+      icon:"bookopen",
+    },
   ],
 
   admin: [
@@ -77,6 +83,18 @@ export const SIDEBAR_MENUS = {
       label:"courses",
       href:"/admin/courses",
       icon:"bookopen",
+    },
+    {
+      id:"courses-offerings",
+      label:"course Offerings",
+      href:"/admin/course-offerings",
+      icon:"bookcopy",
+    },
+    {
+      id:"enrollment",
+      label:"Enrollment",
+      href:"/admin/enrollments",
+      icon:"filebadge",
     },
     {
       id: "settings",
