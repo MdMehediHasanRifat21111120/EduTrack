@@ -1,49 +1,62 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function TeacherCourseNavigation({
   offeringId,
 }) {
-  const baseUrl =
+  const pathname =
+    usePathname();
+
+  const basePath =
     `/teacher/courses/${offeringId}`;
 
-  const links = [
+  const navigation = [
     {
-      label: "Students",
-      href: `${baseUrl}/students`,
+      name: "Overview",
+      href: basePath,
     },
     {
-      label: "Attendance",
-      href: `${baseUrl}/attendance`,
+      name: "Students",
+      href: `${basePath}/students`,
     },
     {
-      label: "Assignments",
-      href: `${baseUrl}/assignments`,
-    },
-    {
-      label: "Quizzes",
-      href: `${baseUrl}/quizzes`,
-    },
-    {
-      label: "Class Tests",
-      href: `${baseUrl}/class-tests`,
-    },
-    {
-      label: "Marks",
-      href: `${baseUrl}/marks`,
+      name: "Attendance",
+      href: `${basePath}/attendance`,
     },
   ];
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {links.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          className="rounded-lg border bg-white p-5 font-medium transition hover:border-blue-500 hover:shadow-sm"
-        >
-          {link.label}
-        </Link>
-      ))}
-    </div>
+    <nav className="border-b">
+      <div className="flex gap-6 overflow-x-auto">
+        {navigation.map(
+          (item) => {
+            const isActive =
+              item.name ===
+              "Overview"
+                ? pathname ===
+                  item.href
+                : pathname.startsWith(
+                    item.href,
+                  );
+
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`border-b-2 px-1 py-3 text-sm font-medium transition ${
+                  isActive
+                    ? "border-blue-600 text-blue-600"
+                    : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                }`}
+              >
+                {item.name}
+              </Link>
+            );
+          },
+        )}
+      </div>
+    </nav>
   );
 }
