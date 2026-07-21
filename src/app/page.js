@@ -16,11 +16,13 @@ const faculties = [
   },
   {
     name: "Computer Science & Engineering",
-    description: "Programs in software, systems, and computing fundamentals.",
+    description:
+      "Programs in software, systems, and computing fundamentals.",
   },
   {
     name: "Business Studies",
-    description: "Business administration, economics, and management programs.",
+    description:
+      "Business administration, economics, and management programs.",
   },
   {
     name: "Arts & Humanities",
@@ -75,9 +77,7 @@ export default function Home() {
               <p className="text-sm font-bold leading-tight text-emerald-900">
                 Jamalpur Science and Technology University
               </p>
-              <p className="text-xs text-slate-500">
-                জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়
-              </p>
+              <p className="text-xs text-slate-500">জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</p>
             </div>
           </div>
 
@@ -93,12 +93,26 @@ export default function Home() {
             </Link>
           </nav>
 
-          <Link
-            href="/admission"
-            className="rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-emerald-950 transition hover:bg-amber-400"
-          >
-            Admission
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/signin"
+              className="text-sm font-medium text-slate-600 hover:text-emerald-900"
+            >
+              Sign in
+            </Link>
+            <Link
+              href="/signup"
+              className="rounded-lg border border-emerald-900 px-4 py-2 text-sm font-medium text-emerald-900 transition hover:bg-emerald-50"
+            >
+              Sign up
+            </Link>
+            <Link
+              href="/admission"
+              className="rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-emerald-950 transition hover:bg-amber-400"
+            >
+              Admission
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -116,9 +130,9 @@ export default function Home() {
             Jamalpur Science and Technology University
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-emerald-100">
-            Advancing science, engineering, and technology education in Jamalpur
-            — building the foundation for tomorrow&apos;s researchers,
-            engineers, and innovators.
+            Advancing science, engineering, and technology education in
+            Jamalpur — building the foundation for tomorrow&apos;s
+            researchers, engineers, and innovators.
           </p>
 
           <div className="mt-8 flex items-center justify-center gap-4">
@@ -164,10 +178,11 @@ export default function Home() {
               A center for science and technology in Jamalpur
             </h2>
             <p className="mt-4 text-slate-600">
-              Jamalpur Science and Technology University is a public university
-              dedicated to research and education across science, engineering,
-              and technology disciplines, preparing students to contribute to
-              Bangladesh&apos;s growth in these fields.
+              Jamalpur Science and Technology University is a public
+              university dedicated to research and education across
+              science, engineering, and technology disciplines, preparing
+              students to contribute to Bangladesh&apos;s growth in these
+              fields.
             </p>
           </div>
 
